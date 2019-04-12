@@ -1,1 +1,17 @@
+.wallet-text-container {
+    height: 60px;
+    text-align: center;
 
+    .currency-symbol {
+        height: 60px;
+        width: 60px;
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    ion-label {
+        font-size: 2em;
+        vertical-align: top;
+        line-height: 60px;
+    }
+}

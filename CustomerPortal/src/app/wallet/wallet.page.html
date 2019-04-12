@@ -7,6 +7,10 @@
 </ion-header>
 
 <ion-content>
-  <h1>Wallet</h1>
-  <p>Your current balance is {{(balance | async)}}</p>
+  <ion-img src="/assets/avatar.svg"></ion-img>
+
+  <div class="wallet-text-container">
+    <ion-img class="currency-symbol" slot="start" src="/assets/reti.png"></ion-img>
+    <ion-label>{{balance$ | async}}</ion-label>
+  </div>
 </ion-content>
