@@ -9,11 +9,11 @@ import { Observable } from 'rxjs';
 })
 export class WalletPage implements OnInit {
 
-  public balance: Observable<number>;
+  public balance$: Observable<number>;
   
   constructor(private walletService:WalletService) {}
 
   ngOnInit(): void {
-    this.balance = this.walletService.getBalance();
+    this.balance$ = this.walletService.getBalance();
   }
 }
