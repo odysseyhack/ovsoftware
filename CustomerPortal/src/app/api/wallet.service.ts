@@ -4,14 +4,15 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 import { default as Web3 } from 'web3';
 import { default as contract } from 'truffle-contract';
-// import RetiArtifacts from '../assets/reti.json';
+import RetiArtifacts from '../../../build/contracts/Reti.json';
+declare var web3;
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class WalletService {
 
-  private web3: Web3;
   private reti: contract;
 
   private accounts: string[];
@@ -20,10 +21,10 @@ export class WalletService {
   private balance$: BehaviorSubject<number> = new BehaviorSubject(0);
 
   constructor() {
-    this.web3 = new Web3(Web3.givenProvider || 'ws://localhost:8546', null, {});
+    console.log(web3.currentProvider);
+    this.initializeReti();
 
-    // this.initializeReti();
-    // this.getAccounts();
+    this.getAccounts();
   }
 
   public getBalance(): Observable<number> {
@@ -31,12 +32,12 @@ export class WalletService {
   }
   
   private initializeReti(): void {
-    // this.reti = contract(RetiArtifacts);
-    this.reti.setProvider(Web3.givenProvider);
+    this.reti = contract(RetiArtifacts);
+    this.reti.setProvider(web3.currentProvider);
   }
 
   private getAccounts(): void {
-    this.web3.eth.getAccounts((err, accs) => {
+    web3.eth.getAccounts((err, accs) => {
       if (err != null) {
         console.error('Something went wrong getting the accounts');
         return;
