@@ -1,10 +1,9 @@
-<ion-card [ngClass]="project.category">
-  <!-- <ion-img src="/assets/shapes.svg"></ion-img> -->
-  <ion-img src="/assets/afbeelding.jpg"></ion-img>
+<ion-card [ngClass]="project.category" (click)="engaged = true">
+  <ion-img src="/assets/cover/{{project.image}}.jpg"></ion-img>
   <ion-card-header>
     <ion-card-subtitle>
       <span class="target">{{project.progress}} of {{project.target}}</span>
-      <ion-progress-bar color="medium" [value]="project.progress / project.target"></ion-progress-bar>
+      <ion-progress-bar [color]="getCategoryColor()" [value]="project.progress / project.target"></ion-progress-bar>
     </ion-card-subtitle>
     <ion-card-title>
       {{project.name}}
@@ -14,18 +13,33 @@
     <p>{{project.description}}</p>
 
     <div class="avatar-container">
-      <ion-avatar>
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-      </ion-avatar>
-      <ion-avatar>
-        <img src="https://gravatar.com/avatar/f9879d71855b5ff21e4963273a886bfc?d=identicon&f=y">
-      </ion-avatar>
-      <ion-avatar>
-        <img src="https://gravatar.com/avatar/0bc83cb571cd1c50ba6f3e8a78ef1346?d=identicon&f=y">
+      <ion-avatar *ngFor="let av of project.avatars">
+        <img src="/assets/avatars/{{av}}.jpg">
       </ion-avatar>
 
-      <!-- <ion-icon class="category-icon" [ngClass]="project.category" [name]="getIconForCategory()"></ion-icon> -->
-      <ion-img class="category-icon" src="/assets/icon.png"></ion-img>
+      <ion-img class="category-icon" src="/assets/icon/{{project.icon}}.png"></ion-img>
+    </div>
+
+    <div class="engaged-section" *ngIf="engaged">
+      <strong>Vote</strong>
+      <div class="button-row">
+        <ion-button (click)="vote(1)">1</ion-button>
+        <ion-button (click)="vote(10)">10</ion-button>
+        <ion-button (click)="vote(100)">100</ion-button>
+        <ion-button (click)="vote(1000)">1000</ion-button>
+      </div>
+
+      <span>Next Rank</span>
+      <div class="rank-info">
+        <div class="rank-image-container">
+          <ion-img class="rank-image" src="/assets/badges/silver.png"></ion-img>
+          <img class="rank-image-overlay" src="/assets/badges/{{project.icon}} badge.png">
+        </div>
+        <div class="rank-progress-container">
+          {{rankProgress}} / 500
+          <ion-progress-bar color="success" [value]="rankProgress / 500"></ion-progress-bar>
+        </div>
+      </div>
     </div>
   </ion-card-content>
 </ion-card>

@@ -1,5 +1,8 @@
-$energy-color: #10dc60;
-$infrastructure-color: #3880ff;
+$energy-color: #ffce00; //warning
+$infrastructure-color: #f04141; //danger
+$health-color: #10dc60; //success
+$food-color: #0cd1e8; //secondary
+$city-color: #7044ff; //tertiary
 
 ion-card {
     border-top: 4px solid;
@@ -20,6 +23,33 @@ ion-card {
         }
         .progress {
             background: $infrastructure-color !important;
+        }
+    }
+    &.health {
+        border-color: $health-color;
+        ion-icon.category-icon {
+            color: $health-color;
+        }
+        .progress {
+            background: $health-color !important;
+        }
+    }
+    &.food {
+        border-color: $food-color;
+        ion-icon.category-icon {
+            color: $food-color;
+        }
+        .progress {
+            background: $food-color !important;
+        }
+    }
+    &.city {
+        border-color: $city-color;
+        ion-icon.category-icon {
+            color: $city-color;
+        }
+        .progress {
+            background: $city-color !important;
         }
     }
 }
@@ -55,4 +85,40 @@ ion-card {
 
 span.target {
     float: right;
+}
+
+.button-row {
+    display: flex;
+    flex-flow: row nowrap;
+
+    ion-button {
+        flex: 1 1;
+    }
+}
+
+.engaged-section {
+    margin-top: 20px;
+}
+.rank-info {
+    display: flex;
+}
+.rank-image-container {
+    flex-basis: 25%;
+    .rank-image-overlay {
+        position: absolute;
+        bottom: 5px;
+        left: 13px;
+        width: 25%;
+    }
+}
+.rank-progress-container {
+    flex-basis: 75%;
+    margin-top: 24px;
+    margin-left: 10px;
+    text-align: end;
+
+    ion-progress-bar {
+        height: 20px;
+        border-radius: 5px;
+    }
 }
