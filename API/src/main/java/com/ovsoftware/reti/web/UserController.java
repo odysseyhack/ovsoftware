@@ -37,7 +37,7 @@ public class UserController {
 	
 	@RequestMapping(value = "create", method = RequestMethod.POST)
     public ResponseEntity<?> createUser(@RequestBody String username, @RequestBody String walletAdress) {
-		userService.createUser(username, walletAdress);
-        return ResponseEntity.ok().build();
+		User user = userService.createUser(username, walletAdress);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

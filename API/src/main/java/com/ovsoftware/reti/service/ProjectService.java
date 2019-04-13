@@ -18,9 +18,10 @@ public class ProjectService {
 	@Autowired
 	private ProjectRepository repository;
 		
-	public void createProject(String name, String description, String category, int target) {
+	public Project createProject(String name, String description, String category, int target) {
 		Project project = new Project(name, description, category, target);
 		repository.save(project);
+		return project;
 	}
 	
 	public Project getProject(String name) {	

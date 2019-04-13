@@ -49,9 +49,9 @@ public class ProjectController {
     }
 	
 	@RequestMapping(value = "create", method = RequestMethod.POST)
-    public ResponseEntity<?> createProject(@RequestBody String name, @RequestBody String description, @RequestBody String category, @RequestBody int target) {
-		projectService.createProject(name, description, category, target);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<Project> createProject(@RequestBody String name, @RequestBody String description, @RequestBody String category, @RequestBody int target) {
+		Project project = projectService.createProject(name, description, category, target);
+        return new ResponseEntity<>(project, HttpStatus.OK);
     }
 	
 	@RequestMapping(value = "updateProgress", method = RequestMethod.POST)

@@ -18,10 +18,11 @@ public class UserService {
 	@Autowired
 	private UserRepository repository;
 		
-	public void createUser(String username, String walletAdress) {
+	public User createUser(String username, String walletAdress) {
 		boolean isActiveParticipant = true;
 		User user = new User(username, walletAdress, isActiveParticipant);
 		repository.save(user);
+		return user;
 	}
 	
 	public User getUser(String username) {	
