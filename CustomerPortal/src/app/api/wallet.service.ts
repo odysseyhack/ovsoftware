@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 import { default as Web3 } from 'web3';
 import { default as contract } from 'truffle-contract';
-import RetiArtifacts from '../../../build/contracts/Reti.json';
+import RetiArtifacts from '../../../build/contracts/reti.json';
 declare var web3;
 
 @Injectable({
