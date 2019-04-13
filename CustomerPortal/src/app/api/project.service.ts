@@ -18,12 +18,14 @@ export class ProjectService {
       name: 'Windmills in Spain',
       category: 'energy',
       description: 'Invest in green energy provided by the Spanish winds! Invest in green energy provided by the Spanish winds! Invest in green energy provided by the Spanish winds!',
+      progress: 647822,
       target: 800000
     };
     const projTollRoad: Project = {
       name: 'Finish the Finnish toll roads',
       category: 'infrastructure',
       description: 'Invest in toll roads for a better flow to Finland. Invest in toll roads for a better flow to Finland. Invest in toll roads for a better flow to Finland.',
+      progress: 1234567,
       target: 3000000
     };
 

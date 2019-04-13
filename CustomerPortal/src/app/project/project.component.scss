@@ -1,3 +1,29 @@
+$energy-color: #10dc60;
+$infrastructure-color: #3880ff;
+
+ion-card {
+    border-top: 4px solid;
+
+    &.energy {
+        border-color: $energy-color;
+        ion-icon.category-icon {
+            color: $energy-color;
+        }
+        .progress {
+            background: $energy-color;
+        }
+    }
+    &.infrastructure {
+        border-color: $infrastructure-color;
+        ion-icon.category-icon {
+            color: $infrastructure-color;
+        }
+        .progress {
+            background: $infrastructure-color !important;
+        }
+    }
+}
+
 .avatar-container {
     width: 100%;
     margin-top: 10px;
@@ -19,10 +45,6 @@
 
 .card-content {
   padding-top: 0px;
-}
-
-ion-icon.category-icon {
-    color: #666;
 }
 
 span.target {
