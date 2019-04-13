@@ -1,0 +1,30 @@
+.avatar-container {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+
+    ion-avatar {
+        height: 30px;
+        width: 30px;
+        margin-right: 5px;
+    }
+
+    ion-icon {
+        margin-left: auto;
+        height: 40px;
+        font-size: 2em;
+    }
+}
+
+.card-content {
+  padding-top: 0px;
+}
+
+ion-icon.category-icon {
+    color: #666;
+}
+
+span.target {
+    float: right;
+}

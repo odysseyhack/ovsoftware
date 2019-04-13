@@ -12,4 +12,14 @@ export class ProjectComponent {
 
   constructor() { }
 
+  public getIconForCategory(): string {
+    if (this.project.category === 'energy') {
+      return 'battery-charging';
+    } else if(this.project.category === 'infrastructure') {
+      return 'train'
+    } else {
+      return '';
+    }
+  }
+
 }
