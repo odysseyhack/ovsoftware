@@ -1,5 +1,9 @@
 pragma solidity ^0.5.0;
 
+interface ApproveAndCallFallBack {
+    function receiveApproval(address from, uint256 tokens, address token) external;
+}
+
 contract Reti {
 
     address private _owner;
@@ -52,6 +56,14 @@ contract Reti {
     function approve(address delegate, uint numTokens) public returns (bool) {
         allowed[msg.sender][delegate] = numTokens;
         emit Approval(msg.sender, delegate, numTokens);
+        return true;
+    }
+    
+    //spender = address smart contract
+    function approveAndCall(address spender, uint tokens) public returns (bool success) {
+        allowed[msg.sender][spender] = tokens;
+        emit Approval(msg.sender, spender, tokens);
+        ApproveAndCallFallBack(spender).receiveApproval(msg.sender, tokens, address(this));
         return true;
     }
 
