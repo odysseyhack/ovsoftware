@@ -12,7 +12,7 @@ export class ProjectComponent {
   @Input() project: Project;
 
   public engaged: boolean = false;
-  public rankProgress: number = Math.floor(Math.random() * 250) + 500;
+  public rankProgress: number = Math.floor(Math.random() * 250) + 50;
 
   constructor(private alertController: AlertController) {}
 
