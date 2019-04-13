@@ -66,12 +66,6 @@ ion-card {
         margin-right: 5px;
     }
 
-    // ion-icon {
-    //     margin-left: auto;
-    //     height: 40px;
-    //     font-size: 2em;
-    // }
-
     .category-icon {
         height: 30px;
         width: 30px;
@@ -102,15 +96,10 @@ span.target {
 .rank-info {
     display: flex;
 }
-.rank-image-container {
+app-badge {
     flex-basis: 25%;
-    .rank-image-overlay {
-        position: absolute;
-        bottom: 5px;
-        left: 13px;
-        width: 25%;
-    }
 }
+
 .rank-progress-container {
     flex-basis: 75%;
     margin-top: 24px;

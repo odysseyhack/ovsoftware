@@ -31,10 +31,7 @@
 
       <span>Next Rank</span>
       <div class="rank-info">
-        <div class="rank-image-container">
-          <ion-img class="rank-image" src="/assets/badges/silver.png"></ion-img>
-          <img class="rank-image-overlay" src="/assets/badges/{{project.icon}} badge.png">
-        </div>
+        <app-badge [icon]="project.icon"></app-badge>
         <div class="rank-progress-container">
           {{rankProgress}} / 500
           <ion-progress-bar color="success" [value]="rankProgress / 500"></ion-progress-bar>

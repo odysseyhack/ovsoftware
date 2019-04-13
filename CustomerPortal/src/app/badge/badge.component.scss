@@ -1,0 +1,9 @@
+.rank-image-container {
+    position: relative;
+
+    .rank-image-overlay {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+    }
+}

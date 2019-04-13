@@ -1,0 +1,18 @@
+app-badge {
+    width: 18%;
+}
+
+.share-container {
+    height: 40px;
+    display: flex;
+    flex-flow: row nowrap;
+
+    ion-img {
+        margin-left: auto;
+        margin-bottom: 1px;
+    }
+}
+
+.right-side-of-badge {
+    width: 100%;
+}

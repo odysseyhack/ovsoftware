@@ -26,6 +26,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'ranking',
+        children: [
+          {
+            path: '',
+            loadChildren: '../ranking/ranking.module#RankingPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/vote',
         pathMatch: 'full'
