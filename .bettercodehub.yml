@@ -1,0 +1,2 @@
+exclude:
+- ./API/src/main/java/com/ovsoftware/reti/domain/Reti\.java
