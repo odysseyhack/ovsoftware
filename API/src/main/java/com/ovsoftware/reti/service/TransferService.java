@@ -26,24 +26,21 @@ import com.ovsoftware.reti.domain.User;
 @Component
 public class TransferService {
 	
+	@Autowired
+	private UserService userService;
+	
 	@Value("${contract.owner.private.key}")
 	private String privateKey;
 	
 	@Value("${reti.monthly.amount}")
 	private Integer monthlyAmount;
 
-	@Value("${reti.gas.price}")
-	private Integer gasPrice;
+	@Value("${reti.default.gas.price}")
+	private Integer defaultGasPrice;
 	
-	@Value("${reti.gas.limit}")
-	private Integer gasLimit;
-	
-	private final BigInteger GAS_PRICE = BigInteger.valueOf(gasPrice);
-	private final BigInteger GAS_LIMIT = BigInteger.valueOf(gasLimit);
-	
-	@Autowired
-	private UserService userService;
-	
+	@Value("${reti.default.gas.limit}")
+	private Integer defaultGasLimit;
+
 	@SuppressWarnings("deprecation")
 	public void executeMonthlyTransfers() {
 		Web3j web3 = Web3j.build(new HttpService("https://mainnet.infura.io/[your contract]"));  
@@ -55,7 +52,10 @@ public class TransferService {
     	TransactionReceiptProcessor transactionReceiptProcessor = new NoOpProcessor(web3);
     	TransactionManager transactionManager = new RawTransactionManager(web3, credentials, ChainId.MAINNET, transactionReceiptProcessor);
 
-		Reti contract = Reti.load("[Your contract address]", web3, transactionManager, GAS_PRICE, GAS_LIMIT);
+    	BigInteger gasPrice = BigInteger.valueOf(defaultGasPrice);
+    	BigInteger gasLimit = BigInteger.valueOf(defaultGasLimit);
+    	
+		Reti contract = Reti.load("[Your contract address]", web3, transactionManager, gasPrice, gasLimit);
     	BigInteger _value = BigInteger.valueOf((long) (monthlyAmount *Math.pow(10, 8)) );
     	
     	List<User> users = userService.getActiveUsers();
@@ -79,7 +79,10 @@ public class TransferService {
     	TransactionReceiptProcessor transactionReceiptProcessor = new NoOpProcessor(web3);
     	TransactionManager transactionManager = new RawTransactionManager(web3, credentials, ChainId.MAINNET, transactionReceiptProcessor);
 
-		Reti contract = Reti.load("[Your contract address]", web3, transactionManager, GAS_PRICE, GAS_LIMIT);
+    	BigInteger gasPrice = BigInteger.valueOf(defaultGasPrice);
+    	BigInteger gasLimit = BigInteger.valueOf(defaultGasLimit);
+    	
+		Reti contract = Reti.load("[Your contract address]", web3, transactionManager, gasPrice, gasLimit);
     	BigInteger _value = BigInteger.valueOf((long) (amount *Math.pow(10, 8)) );
     	try {
     		contract.transfer(toWallet, _value).sendAsync().get();
