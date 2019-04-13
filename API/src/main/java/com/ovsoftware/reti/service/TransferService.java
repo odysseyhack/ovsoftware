@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.ECKeyPair;
@@ -25,10 +26,20 @@ import com.ovsoftware.reti.domain.User;
 @Component
 public class TransferService {
 	
-	private static final Integer MONTHLY_AMOUNT = 100;
+	@Value("${contract.owner.private.key}")
+	private String privateKey;
 	
-	private static final BigInteger GAS_PRICE = BigInteger.valueOf(1000);
-	private static final BigInteger GAS_LIMIT = BigInteger.valueOf(1000);
+	@Value("${reti.monthly.amount}")
+	private Integer monthlyAmount;
+
+	@Value("${reti.gas.price}")
+	private Integer gasPrice;
+	
+	@Value("${reti.gas.limit}")
+	private Integer gasLimit;
+	
+	private final BigInteger GAS_PRICE = BigInteger.valueOf(gasPrice);
+	private final BigInteger GAS_LIMIT = BigInteger.valueOf(gasLimit);
 	
 	@Autowired
 	private UserService userService;
@@ -37,7 +48,6 @@ public class TransferService {
 	public void executeMonthlyTransfers() {
 		Web3j web3 = Web3j.build(new HttpService("https://mainnet.infura.io/[your contract]"));  
         	
-		String privateKey = "[ contract owner privateKey ]";
     	BigInteger key = new BigInteger(privateKey,16); 	
     	ECKeyPair ecKeyPair = ECKeyPair.create(key.toByteArray()); 
     	Credentials credentials = Credentials.create(ecKeyPair); 
@@ -46,7 +56,7 @@ public class TransferService {
     	TransactionManager transactionManager = new RawTransactionManager(web3, credentials, ChainId.MAINNET, transactionReceiptProcessor);
 
 		Reti contract = Reti.load("[Your contract address]", web3, transactionManager, GAS_PRICE, GAS_LIMIT);
-    	BigInteger _value = BigInteger.valueOf((long) (MONTHLY_AMOUNT *Math.pow(10, 8)) );
+    	BigInteger _value = BigInteger.valueOf((long) (monthlyAmount *Math.pow(10, 8)) );
     	
     	List<User> users = userService.getActiveUsers();
     	for(User user : users) {
@@ -62,7 +72,6 @@ public class TransferService {
 	public void transferToUser(String toWallet, int amount) {
 		Web3j web3 = Web3j.build(new HttpService("https://mainnet.infura.io/[your contract]"));  
         	
-		String privateKey = "[ contract owner privateKey ]";
     	BigInteger key = new BigInteger(privateKey,16); 	
     	ECKeyPair ecKeyPair = ECKeyPair.create(key.toByteArray()); 
     	Credentials credentials = Credentials.create(ecKeyPair); 
