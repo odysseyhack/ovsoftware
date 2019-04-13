@@ -34,4 +34,10 @@ public class TransferController {
 		transferService.transferToUser(user.getWalletAdress(), amount);
 		return ResponseEntity.ok().build();
     }
+	
+	@RequestMapping(value = "monthly", method = RequestMethod.POST)
+    public ResponseEntity<?> transferMonthlyReti() {
+		transferService.executeMonthlyTransfers();
+		return ResponseEntity.ok().build();
+    }
 }

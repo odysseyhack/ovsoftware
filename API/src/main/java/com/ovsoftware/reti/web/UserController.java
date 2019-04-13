@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +25,7 @@ public class UserController {
 	private UserService userService;
 	
 	@RequestMapping(value = "get", method = RequestMethod.GET)
-    public ResponseEntity<User> getUser(String username) {
+    public ResponseEntity<User> getUser(@RequestBody String username) {
 		User user = userService.getUser(username);
 		
 		if(user != null) {
@@ -35,8 +36,8 @@ public class UserController {
     }
 	
 	@RequestMapping(value = "create", method = RequestMethod.POST)
-    public ResponseEntity<?> createUser(User user) {
-		userService.createUser(user);
+    public ResponseEntity<?> createUser(@RequestBody String username, @RequestBody String walletAdress) {
+		userService.createUser(username, walletAdress);
         return ResponseEntity.ok().build();
     }
 }
