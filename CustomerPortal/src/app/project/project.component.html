@@ -1,10 +1,29 @@
-<ion-card class="welcome-card">
+<ion-card [ngClass]="project.category">
   <ion-img src="/assets/shapes.svg"></ion-img>
   <ion-card-header>
-    <ion-card-subtitle>29283 out of {{project.target}}</ion-card-subtitle>
-    <ion-card-title>{{project.name}}</ion-card-title>
+    <ion-card-subtitle>
+      <span class="target">{{project.progress}} of {{project.target}}</span>
+      <ion-progress-bar color="medium" [value]="project.progress / project.target"></ion-progress-bar>
+    </ion-card-subtitle>
+    <ion-card-title>
+      {{project.name}}
+    </ion-card-title>
   </ion-card-header>
   <ion-card-content>
     <p>{{project.description}}</p>
+
+    <div class="avatar-container">
+      <ion-avatar>
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+      <ion-avatar>
+        <img src="https://gravatar.com/avatar/f9879d71855b5ff21e4963273a886bfc?d=identicon&f=y">
+      </ion-avatar>
+      <ion-avatar>
+        <img src="https://gravatar.com/avatar/0bc83cb571cd1c50ba6f3e8a78ef1346?d=identicon&f=y">
+      </ion-avatar>
+
+      <ion-icon class="category-icon" [ngClass]="project.category" [name]="getIconForCategory()"></ion-icon>
+    </div>
   </ion-card-content>
 </ion-card>

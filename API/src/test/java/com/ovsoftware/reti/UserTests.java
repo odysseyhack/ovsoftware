@@ -25,8 +25,9 @@ public class UserTests {
 
 	@Test
 	public void testUserFlow() {
-		User user = new User("Test", "WalletHashCode");
-		userService.createUser(user);
+		String username = "Test";
+		String walletAdress = "WalletHashCode";
+		User user = userService.createUser(username, walletAdress);
 		User created = userService.getUser(user.getUsername());
 		assertEquals(user.getUsername(), created.getUsername());
 		assertEquals(user.getWalletAdress(), created.getWalletAdress());

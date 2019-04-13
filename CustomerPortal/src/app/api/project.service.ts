@@ -16,12 +16,16 @@ export class ProjectService {
   public getProjects(): Observable<Project[]> {
     const projWindmills: Project = {
       name: 'Windmills in Spain',
-      description: 'Invest in green energy provided by the Spanish winds!',
+      category: 'energy',
+      description: 'Invest in green energy provided by the Spanish winds! Invest in green energy provided by the Spanish winds! Invest in green energy provided by the Spanish winds!',
+      progress: 647822,
       target: 800000
     };
     const projTollRoad: Project = {
       name: 'Finish the Finnish toll roads',
-      description: 'Invest in toll roads for a better flow to Finland',
+      category: 'infrastructure',
+      description: 'Invest in toll roads for a better flow to Finland. Invest in toll roads for a better flow to Finland. Invest in toll roads for a better flow to Finland.',
+      progress: 1234567,
       target: 3000000
     };
 
