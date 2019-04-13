@@ -1,2 +1,2 @@
 exclude:
-- ./API/src/main/java/com/ovsoftware/reti/domain/Reti\.java
+- /API/src/main/java/com/ovsoftware/reti/domain/Reti\.java
