@@ -15,9 +15,9 @@ export class ProjectService {
 
   public getProjects(): Observable<Project[]> {
     const projWindmills: Project = {
-      name: 'Windmills in Spain',
+      name: 'Glasvezelnetwerk in Californië',
       category: 'energy',
-      description: 'Invest in green energy provided by the Spanish winds! Invest in green energy provided by the Spanish winds! Invest in green energy provided by the Spanish winds!',
+      description: 'Fullerton heeft een inwonertal van ongeveer 135.000. In de gemeente staan 50.000 woningen en 5.000 bedrijven. Het nieuwe glasvezelnetwerk zal over de gehele gemeente worden uitgerold.',
       progress: 647822,
       target: 800000
     };

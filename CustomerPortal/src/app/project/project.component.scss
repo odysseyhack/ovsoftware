@@ -36,10 +36,16 @@ ion-card {
         margin-right: 5px;
     }
 
-    ion-icon {
+    // ion-icon {
+    //     margin-left: auto;
+    //     height: 40px;
+    //     font-size: 2em;
+    // }
+
+    .category-icon {
+        height: 30px;
+        width: 30px;
         margin-left: auto;
-        height: 40px;
-        font-size: 2em;
     }
 }
 
