@@ -1,5 +1,6 @@
 <ion-card [ngClass]="project.category">
-  <ion-img src="/assets/shapes.svg"></ion-img>
+  <!-- <ion-img src="/assets/shapes.svg"></ion-img> -->
+  <ion-img src="/assets/afbeelding.jpg"></ion-img>
   <ion-card-header>
     <ion-card-subtitle>
       <span class="target">{{project.progress}} of {{project.target}}</span>
@@ -23,7 +24,8 @@
         <img src="https://gravatar.com/avatar/0bc83cb571cd1c50ba6f3e8a78ef1346?d=identicon&f=y">
       </ion-avatar>
 
-      <ion-icon class="category-icon" [ngClass]="project.category" [name]="getIconForCategory()"></ion-icon>
+      <!-- <ion-icon class="category-icon" [ngClass]="project.category" [name]="getIconForCategory()"></ion-icon> -->
+      <ion-img class="category-icon" src="/assets/icon.png"></ion-img>
     </div>
   </ion-card-content>
 </ion-card>
