@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 
-import { Reti } from "bzz-raw://439ca3dae26f9fd4459c6c34938b61fecbd160f255fc4f4cbe7c0641960a9174";
+import { Reti } from "bzz-raw://9dde80a378435b407a7caf01a5ca921dc05ca4c16ff02a5307eec2615cf2e16b";
 
 contract VoteForProject {
     // describes a Project
