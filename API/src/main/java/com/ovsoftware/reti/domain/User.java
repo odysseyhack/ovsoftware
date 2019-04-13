@@ -12,6 +12,7 @@ public class User {
 	private long _id;
 	private String username;
 	private String walletAdress;
+	private boolean activeParticipant;
 	
 	public User() {
 		super();
@@ -23,11 +24,11 @@ public class User {
 		this.walletAdress = walletAdress;
 	}
 
-	public User(long _id, String username, String walletAdress) {
+	public User(String username, String walletAdress, boolean isActiveParticipant) {
 		super();
-		this._id = _id;
 		this.username = username;
 		this.walletAdress = walletAdress;
+		this.activeParticipant = isActiveParticipant;
 	}
 
 	public long getId() {
@@ -52,6 +53,14 @@ public class User {
 
 	public void setWalletAdress(String walletAdress) {
 		this.walletAdress = walletAdress;
+	}
+
+	public boolean isActiveParticipant() {
+		return activeParticipant;
+	}
+
+	public void setActiveParticipant(boolean isActiveParticipant) {
+		this.activeParticipant = isActiveParticipant;
 	}
 
 	@Override
