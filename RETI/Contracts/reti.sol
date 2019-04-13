@@ -44,7 +44,7 @@ contract Reti {
         require(msg.sender == _owner);
         require(receivers.length == tokens.length);
         for (uint i=0; i < receivers.length; i++) {
-            emit Transfer(msg.sender, receivers[i], tokens[i]);
+            transfer(receivers[i], tokens[i]);
         }
         return true;
     }
