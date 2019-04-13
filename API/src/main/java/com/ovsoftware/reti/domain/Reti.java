@@ -1,4 +1,4 @@
-package com.ovsoftware.reti;
+package com.ovsoftware.reti.domain;
 
 import java.math.BigInteger;
 import java.util.ArrayList;

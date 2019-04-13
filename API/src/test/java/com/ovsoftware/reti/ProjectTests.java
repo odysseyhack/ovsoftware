@@ -37,5 +37,20 @@ public class ProjectTests {
 		assertEquals(project.getTarget(), created.getTarget());
 		projectService.deleteProject(created);
 	}
+	
+	@Test
+	public void testUpdateProgress() {
+		String name = "Test1";
+		String description = "This is a test";
+		String category = "Testing";
+		int target = 100;
+		Project project = projectService.createProject(name, description, category, target);
+		Project created = projectService.getProject(project.getName());
+		assertEquals(created.getProgress(), 0);
+		projectService.updateProgress(created.getName(), 100);
+		assertEquals(created.getProgress(), 100);
+		projectService.deleteProject(created);
+	}
+	
 
 }
