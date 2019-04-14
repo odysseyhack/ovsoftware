@@ -1,5 +1,6 @@
 app-badge {
     width: 18%;
+    margin: 10px;
 }
 
 .share-container {
@@ -15,4 +16,8 @@ app-badge {
 
 .right-side-of-badge {
     width: 100%;
+}
+
+p {
+    font-weight: bold;
 }

@@ -21,9 +21,7 @@ export class WalletService {
   private balance$: BehaviorSubject<number> = new BehaviorSubject(0);
 
   constructor() {
-    console.log(web3.currentProvider);
     this.initializeReti();
-
     this.getAccounts();
   }
 

@@ -14,6 +14,6 @@ describe('ProjectService', () => {
   it('should get projects', async () => {
     const service: ProjectService = TestBed.get(ProjectService);
     const projects: Project[] = await service.getProjects().toPromise();
-    expect(projects.length).toBe(6);
+    expect(projects.length).toBe(5);
   });
 });
