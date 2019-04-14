@@ -4,3 +4,11 @@ exclude:
 # # ApgPortal and CustomerPortal are two separate projects, so they include duplicate test configuration files
 - /ApgPortal/e2e/protractor\.conf\.js
 - /ApgPortal/src/karma.conf.js
+
+languages:
+- name: java
+- name: typescript
+  production:
+  test:
+    include:
+    - .*spec.ts
